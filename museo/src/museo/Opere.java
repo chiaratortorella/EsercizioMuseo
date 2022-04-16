@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Opere{
 
-    String titolo;
-    Autore autore;
-    int codice;
+    public String titolo;
+    public Autore autore;
+    public int codice;
 
     public int getCodice() {
         return codice;

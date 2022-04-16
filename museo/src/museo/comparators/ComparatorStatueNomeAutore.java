@@ -1,4 +1,6 @@
-package museo;
+package museo.comparators;
+
+import museo.Statue;
 
 import java.util.Comparator;
 

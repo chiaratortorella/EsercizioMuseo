@@ -1,4 +1,4 @@
-package museo;
+package museo.exceptions;
 
 public class NumeroSconosciutoException extends Exception{
 

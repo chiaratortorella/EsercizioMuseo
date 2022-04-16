@@ -1,5 +1,7 @@
 package museo;
 
+import museo.exceptions.OperaNonPresenteException;
+
 import java.util.*;
 
 public class Museo {
@@ -76,7 +78,7 @@ public class Museo {
         return depositoopere;
     }
 
-    public Opere cercaOpera(int e) throws OperaNonPresente{
+    public Opere cercaOpera(int e) throws OperaNonPresenteException {
         System.out.println("Inserisci il codice dell'opera: ");
             Scanner sc = new Scanner(System.in);
             int s = sc.nextInt();
@@ -91,7 +93,7 @@ public class Museo {
                     System.out.println(p.getTitolo() + " si trova in deposito");
                 }
             }
-            throw new OperaNonPresente("Opera non presente in museo!");
+            throw new OperaNonPresenteException("Opera non presente in museo!");
         } else {
             System.out.println("L'opera non esiste!");
         }
