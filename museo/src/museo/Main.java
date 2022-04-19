@@ -47,32 +47,32 @@ public class Main{
         Autore a5 = new Autore("Antonio", "Canova", LocalDate.of(1757, 11, 1));
         Autore a6 = new Autore("Michelangelo", "Buonarroti", LocalDate.of(1564, 02, 15));
 
-        Statue s1 = new Statue("Il David", a6, 4, 5.20, 4);
-        Statue s2 = new Statue("Amore e Psiche", a5, 6, 1.55, 5);
-        Statue s3 = new Statue("Il Ratto di Proserpina", a4, 5, 2.55, 6);
+        Opere s1 = new Statue("Il David", a6, 4, 5.20, 4);
+        Opere s2 = new Statue("Amore e Psiche", a5, 6, 1.55, 5);
+        Opere s3 = new Statue("Il Ratto di Proserpina", a4, 5, 2.55, 6);
 
-        Quadri q1 = new Quadri("La Notte Stellata", a1, "olio", 1);
-        Quadri q2 = new Quadri("La Nascita di Venere", a2, "sale", 2);
-        Quadri q3 = new Quadri("L'Ultima Cena", a3, "pepe", 3);
-        Quadri q4 = new Quadri("La Gioconda", a3, "pepe", 3);
+        Opere q1 = new Quadri("La Notte Stellata", a1, "olio", 1);
+        Opere q2 = new Quadri("La Nascita di Venere", a2, "sale", 2);
+        Opere q3 = new Quadri("L'Ultima Cena", a3, "pepe", 3);
+        Opere q4 = new Quadri("La Gioconda", a3, "pepe", 3);
 
 
-        quadriTecnica.add(q1);
-        quadriTecnica.add(q2);
-        quadriTecnica.add(q3);
+        quadriTecnica.add((Quadri) q1);
+        quadriTecnica.add((Quadri) q2);
+        quadriTecnica.add((Quadri) q3);
 
-        quadriautore.add(q1);
-        quadriautore.add(q2);
-        quadriautore.add(q3);
-        quadriautore.add(q4);
+        quadriautore.add((Quadri) q1);
+        quadriautore.add((Quadri) q2);
+        quadriautore.add((Quadri) q3);
+        quadriautore.add((Quadri) q4);
 
-        statueMateriale.add(s1);
-        statueMateriale.add(s2);
-        statueMateriale.add(s3);
+        statueMateriale.add((Statue) s1);
+        statueMateriale.add((Statue) s2);
+        statueMateriale.add((Statue) s3);
 
-        statueAutore.add(s1);
-        statueAutore.add(s2);
-        statueAutore.add(s3);
+        statueAutore.add((Statue) s1);
+        statueAutore.add((Statue) s2);
+        statueAutore.add((Statue) s3);
 
 
         autoriEta.add(a1);
@@ -90,19 +90,29 @@ public class Main{
         autoreNomeCognome.add(a5);
         autoreNomeCognome.add(a6);
 
-        statueAltezza.add(s1);
-        statueAltezza.add(s2);
-        statueAltezza.add(s3);
+        statueAltezza.add((Statue) s1);
+        statueAltezza.add((Statue) s2);
+        statueAltezza.add((Statue) s3);
 
-        statueTitolo.add(s1);
-        statueTitolo.add(s2);
-        statueTitolo.add(s3);
+        statueTitolo.add((Statue) s1);
+        statueTitolo.add((Statue) s2);
+        statueTitolo.add((Statue) s3);
 
-        quadriTitolo.add(q1);
-        quadriTitolo.add(q2);
-        quadriTitolo.add(q3);
+        quadriTitolo.add((Quadri) q1);
+        quadriTitolo.add((Quadri) q2);
+        quadriTitolo.add((Quadri) q3);
+
+        Map<Autore, ArrayList<Opere>> mappaAutoriOpere = new HashMap<>();
+        mappaAutoriOpere.put(a1, new ArrayList<>(List.of(q1, q2, s1)));
+        mappaAutoriOpere.put(a2, new ArrayList<>(List.of(q2, s2)));
+        mappaAutoriOpere.put(a3, new ArrayList<>(List.of(q3, s2)));
+        mappaAutoriOpere.put(a4, new ArrayList<>(List.of(q4, s2)));
+        mappaAutoriOpere.put(a5, new ArrayList<>(List.of(q2, s2)));
+        mappaAutoriOpere.put(a6, new ArrayList<>(List.of(q3, s2)));
 
         Museo museo = new Museo();
+        museo.setAutori(mappaAutoriOpere);
+        museo.cercaAutore(a1);
 
         /*museo.caricaOpera(s1);
         museo.caricaOpera(s2);
@@ -131,9 +141,12 @@ public class Main{
         //statueAutore.forEach(System.out::println);
         //autoriEta.forEach(System.out::println);
 
+
+
+
         do{
             try{
-        System.out.println();
+            System.out.println();
             System.out.println("Quale ordinamento vuoi vedere? " +
                 "\n [1]: Ordina QUADRI in base alla TECNICA" +
                 "\n [2]: Ordina QUADRI in base all'AUTORE" +

@@ -29,7 +29,7 @@ public class Statue extends Opere {
 
     @Override
     public String toString() {
-        return "La statua si intitola: " + titolo + " " + autore.getNome() + " " + autore.getCognome() + " " + materiale;
+        return titolo + " (" + materiale + ")";
     }
 
 

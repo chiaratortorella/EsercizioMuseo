@@ -31,6 +31,6 @@ public class Autore {
 
     @Override
     public String toString() {
-        return "L'autore è: " + nome + " " + cognome + " " + "Nato: " + dataNascita;
+        return nome + " " + cognome + " (" + dataNascita + ")";
     }
 }

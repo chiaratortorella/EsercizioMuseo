@@ -25,6 +25,6 @@ public class Quadri extends Opere {
 
     @Override
     public String toString() {
-        return "Il titolo del quadro è: " + titolo + " " + autore.getNome() + " " + autore.getCognome() + " " + tecnicaUsata;
+        return titolo + " (" + tecnicaUsata + ")";
     }
 }

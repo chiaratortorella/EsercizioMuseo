@@ -5,8 +5,9 @@ import museo.exceptions.OperaNonPresenteException;
 import java.util.*;
 
 public class Museo {
+
+    private Map<Autore, ArrayList<Opere>> mappaAutoriOpere = new HashMap<>();
     private ArrayList<Opere> deposito;
-    private ArrayList<Autore> autori;
     private ArrayList<Opere> esposizione;
 
     public ArrayList<Opere> getDeposito() {
@@ -17,12 +18,12 @@ public class Museo {
         this.deposito = deposito;
     }
 
-    public ArrayList<Autore> getAutori() {
-        return autori;
+    public Map<Autore,ArrayList<Opere>> getAutori() {
+        return mappaAutoriOpere;
     }
 
-    public void setAutori(ArrayList<Autore> autori) {
-        this.autori = autori;
+    public void setAutori(Map<Autore, ArrayList<Opere>> autori) {
+        this.mappaAutoriOpere = autori;
     }
 
     public ArrayList<Opere> getEsposizione() {
@@ -101,12 +102,9 @@ public class Museo {
     }
 
 
-    public Opere cercaAutore(String autore){
-        for(Autore a : autori){
-            if(a.getNome() == autore){
-                System.out.println("L'autore è: " + a.getNome() + a.getCognome());
-            }
+    public void cercaAutore(Autore autore){
+        for(Map.Entry a : mappaAutoriOpere.entrySet()) {
+            System.out.println(a.getKey() + " " + a.getValue());
         }
-        return cercaAutore(autore);
     }
 }
